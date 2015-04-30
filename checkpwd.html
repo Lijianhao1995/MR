@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script language="javascript" type="text/javascript">
+	function check(form1){
+		if(form1.pw1.value!=form1.pw2.value){
+			alert("两次密码不一样！");
+			form1.name.select();
+			return;
+		}else{
+			if(form1.email.value==""){
+				alert("请输入email地址");
+				form1.emial.focus();
+				return;
+			}else{
+				if(!checkemail(form1.email.value)){
+					alert("您输入的Email地址不正确");
+					form1.email.focus();
+					return;
+				}else{
+					alert("正确！");
+					return;
+				}
+			}
+		}
+	}
+</script>
+<script language="javascript" type="text/javascript">
+	function checkemail(email){
+		var str=email;
+		var expression=/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+		var objExp=new RegExp(expression);
+		if(objExp.test(str)==true){
+			return true;
+		}else{
+			return false;
+		}
+	}
+</script>
+<script language="javascript" type="text/javascript">
+	function func(form)
+	{
+		alert(form.pw1.value);
+		return;
+	}
+</script>
+<form action="" method="post" name="form1">
+  <p align="center">用户名:
+    <input type="text" name="username"  />
+</p>
+  <p align="center">密码:
+    <input type="password" name="pw1" value""/>
+</p>
+  <p align="center">确认密码:
+    <input type="password" name="pw2" value""/>
+</p>
+  <p align="center">性别:
+    <input type="radio" value="1" name="sex" />
+女
+<input type="radio" value="2" name="sex"/>
+男</p>
+  <p align="center"> email地址:
+    <input type="text" name="email" />
+          </p>
+		 <div align="center">
+		   <input type="submit" name="button" value="提交" onclick="check(form1);"/>
+		   <input type="reset" name="button2" value="重置" onclick="func(form1)" />
+  </div>
+</form>
+</body>
+</html>

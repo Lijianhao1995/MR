@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<form name="form" action="" method="post">
+  <p>
+    <textarea name="suggestions" cols="30" rows="5" id="suggestions" onkeydown="StatByte(this.form.suggestions,this.form.maxs,this.form.used,this.form.remain);" onkeyup="StatByte(this.form.suggestions,this.form.maxs,this.form.used,this.form.remain);"></textarea>  </p>
+  <p>最大字节数：
+    <input name="maxs" type="text" disabled id="maxs" value="10" size="8" />
+    </p>
+  <p>已用字节:
+  <input name="used" type="text" disabled  id="used" value="0" size="8" />
+<p>
+  剩余字节:
+  <input name="remain" type="text" disabled id="remain" value="10" size="8" />
+</form>
+<script language="javascript" type="text/javascript">
+
+var LastCount=0;
+function StatByte(Message,maxs,Used,Remain){	
+	var ByteCount=0;
+	
+	var StrValue=Message.value;
+	
+	var StrLength=Message.value.length;
+	
+	var maxsValue=maxs.value;
+	
+	if(LastCount!=StrLength){
+		
+		for(i=0;i<StrLength;i++){
+			ByteCount=(StrValue.charCodeAt(i)<=256)?ByteCount+1:ByteCount+2;
+			if(ByteCount>maxsValue){
+				Message.value=StrValue.substring(0,i);
+				alert("no more than"+maxsValue+"bytes! attention:1charater equals 2bytes");
+				ByteCount=maxsValue;
+				break;
+			}
+		}
+		Used.value=ByteCount;
+		Remain.value=maxsValue-ByteCount;
+		Lastcount=StrLength;
+	}
+}
+</script>
+/*1.一般是拼写错误 2.要在一个form表格中才能操作*/
+</body>
+</html>

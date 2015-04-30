@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+.STYLE1 {font-size: x-large}
+-->
+</style>
+</head>
+
+<body> 
+<div align="center" class="STYLE1">
+  <div align="center">用户注册</div>
+</div>
+<form action="secondpage.php" method="post" name="myForm">
+<div align="center">用户名:
+  <input type="text" name="Username" />
+  <br />
+  密码：
+  <input type="password" name="Password" />
+</div>
+<p align="center">性别：<input type="radio" checked="checked" name="Sex" value="男" />男<input type="radio" name="Sex" value="女" />女</p>
+<div align="center">学历：
+  <select name="education" size="1">
+    <option value="高中">高中</option>
+    <option value="本科">本科</option>
+    <option value="硕士">硕士</option>
+    <option value="博士">博士</option>
+  </select>
+</div>
+<p align="center">爱好：<input type="checkbox" name="Hobby[]" value="打篮球" />打篮球<input type="checkbox" name="Hobby[]" value="游泳" />游泳<input type="checkbox" name="Hobby[]" value="瑜伽" />瑜伽</p>
+
+<p align="center">个人简历：<textarea name="myTextArea" cols="40" rows="4">输入你的个人介绍</textarea></p>
+
+  <div align="center">
+    <input type="submit" name="Button1" value="提交" />
+    <input type="reset" name="Button1" value="重置" />
+  </div>
+</form>
+</body>
+</html>
